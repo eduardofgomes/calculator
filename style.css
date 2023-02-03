@@ -1,9 +1,18 @@
-.calculadora    {
-    display: flex;
-    falign-items: center;
-    justify-content: center;
+*{
+    margin: 0;
+    padding: 0;
 }
-
 .tela{
     background-image: linear-gradient(45deg ,black, green);
+    height: 100%;
+    color: white;
+    font-family: Arial, Helvetica, sans-serif;
+}
+.calculadora{
+    position: absolute;
+    background-color: #111;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    border-radius: 15px;
 }
