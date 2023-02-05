@@ -12,6 +12,11 @@ function back() {
     document.querySelector("#resultado").innerHTML = resultado.substring(0, resultado.length -1)
 }
 
-function calculate() {
-    
+function calcular() {
+    var resultado = document.querySelector("#resultado").innerHTML
+    if(resultado) {
+        document.querySelector("#resultado").innerHTML = eval(resultado) 
+    } else {
+        alert('Field is empty, please type some value')
+    }
 }
