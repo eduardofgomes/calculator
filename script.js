@@ -11,3 +11,7 @@ function back() {
     var resultado = document.querySelector("#resultado").innerHTML
     document.querySelector("#resultado").innerHTML = resultado.substring(0, resultado.length -1)
 }
+
+function calculate() {
+    
+}
