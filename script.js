@@ -1,6 +1,14 @@
+function limit() {
+    if(numbers.length >= 15) {
+        
+    }
+}
+
 function insert(number) {
     var anotherNumber = document.querySelector("#resultado").innerHTML
     document.querySelector("#resultado").innerHTML = number + anotherNumber
+
+    limit()
 }
 
 function clean() {
