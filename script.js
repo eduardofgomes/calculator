@@ -1,6 +1,8 @@
 function limit() {
+    let numbers = document.querySelectorAll(".value")
+
     if(numbers.length >= 15) {
-        
+        numbers.disabled = true
     }
 }
 
