@@ -1,32 +1,57 @@
-function limit() {
-    let numbers = document.querySelectorAll(".value")
+class Calculator {
+    constructor(previousOperandTextElement, currentOperandText) {
+        this.previousOperandTextElement = previousOperandTextElement;
+        this.currentOperandText = previousOperandText;
+    }
 
-    if(numbers.length >= 15) {
-        numbers.disabled = true
+    clear() {
+        this.currentOperand = ''
+        this.previousOperand = ''
+        this.operation = undefined
+    }
+
+    delete() {
+
+    }
+
+    appendNumber(number) {
+        if(number === '.' && this.currentOperand.includes('.')) return
+        this.currentOperand = this.currentOperand.toString() + number.toString()
+    }
+
+    chooseOperation(operation) {
+
+    }
+
+    compute() {
+
+    }
+
+    updateDisplay() {
+        this.currentOperandTextElement.innerText = this.currentOperand
     }
 }
 
-function insert(number) {
-    var anotherNumber = document.querySelector("#resultado").innerHTML
-    document.querySelector("#resultado").innerHTML = number + anotherNumber
+const numberButtons = document.querySelectorAll('[data-number')
+const operationButtons = document.querySelectorAll('[data-operation]')
+const equalsButton = document.querySelector('[data-equals]')
+const deleteButton = document.querySelector('[data-delete]')
+const allCLearButton = document.querySelector('[data-all-clear]')
+const previousOperandTextElement = document.querySelector('[data-previous-operand]')
+const currentOperandTextElement = document.querySelector('[data-current-operand]')
 
-    limit()
-}
+const calculator = new Calculator(previousOperandTextElement, currentOperandTextElement)
 
-function clean() {
-    document.querySelector("#resultado").innerHTML = ""
-}
+numberButtons.forEach(button => {
+    button.addEventListener('click', () => {
+        calculator.appendNumber(button.innerText)
+        calculator.updateDisplay()
+    })
+})
 
-function back() {
-    var resultado = document.querySelector("#resultado").innerHTML
-    document.querySelector("#resultado").innerHTML = resultado.substring(0, resultado.length -1)
-}
-
-function calcular() {
-    var resultado = document.querySelector("#resultado").innerHTML
-    if(resultado) {
-        document.querySelector("#resultado").innerHTML = eval(resultado) 
-    } else {
-        alert('Field is empty, please type some value')
-    }
-}
+operationButtons.forEach(button => {
+    button.addEventListener('click', () => {
+        calculator.chooseOperation(button.innerText)
+        calculator.updateDisplay()
+    })
+})
